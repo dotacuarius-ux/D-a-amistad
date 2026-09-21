@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>🌻 Un universo para ti</title>
+<title>🌻 Un pequeño universo para ti</title>
 
 <style>
-
-/* =====================================================
-   GENERAL
-===================================================== */
 
 *{
     box-sizing:border-box;
@@ -19,859 +14,525 @@
     padding:0;
 }
 
-html,body{
-    width:100%;
-    height:100%;
+body{
+    font-family:Arial,sans-serif;
+    background:#05000d;
+    color:white;
     overflow:hidden;
 }
 
-body{
-    font-family:Arial,sans-serif;
-    background:#02010b;
-    color:white;
-}
-
-
-/* =====================================================
-   PANTALLA DE BIENVENIDA
-===================================================== */
+/* =========================
+   PANTALLA DE INICIO
+========================= */
 
 .intro{
-
     position:fixed;
     inset:0;
+    z-index:1000;
 
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
     text-align:center;
 
     background:
-        radial-gradient(
-            circle at center,
-            #33205f 0%,
-            #13082e 45%,
-            #020109 100%
-        );
+    radial-gradient(circle at center,
+    #291044 0%,
+    #10051e 45%,
+    #030006 100%);
 
-    z-index:1000;
-
-    transition:1.2s;
-}
-
-.intro.hide{
-    opacity:0;
-    visibility:hidden;
+    transition:opacity 1s ease;
 }
 
 .intro-box{
     width:90%;
-    max-width:470px;
-    animation:entrada 1.5s ease;
-}
-
-@keyframes entrada{
-
-    from{
-        opacity:0;
-        transform:translateY(30px) scale(.8);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
+    max-width:650px;
 }
 
 .big-flower{
-
-    font-size:80px;
-
-    filter:
-        drop-shadow(0 0 15px #ffd000)
-        drop-shadow(0 0 40px #ff9d00);
-
-    animation:pulse 2s infinite alternate;
+    font-size:90px;
+    animation:
+    floatFlower 3s ease-in-out infinite,
+    glow 2s ease-in-out infinite alternate;
 }
 
-@keyframes pulse{
+@keyframes floatFlower{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+@keyframes glow{
 
     from{
-        transform:scale(1);
+        filter:drop-shadow(0 0 5px #ffd900);
     }
 
     to{
-        transform:scale(1.12);
+        filter:drop-shadow(0 0 30px #ffd900);
     }
 }
 
 .intro h1{
-
-    margin-top:15px;
-
-    font-size:
-        clamp(28px,7vw,45px);
-
-    color:#ffe66d;
-
+    margin-top:20px;
+    font-size:clamp(30px,7vw,55px);
+    color:#ffe76b;
     text-shadow:
-        0 0 12px #ffd000,
-        0 0 30px #ff9d00;
+    0 0 10px #ffd000,
+    0 0 30px #ffbb00;
 }
 
 .intro p{
-
-    margin-top:18px;
-
+    margin-top:25px;
+    font-size:20px;
     line-height:1.7;
-
-    color:#fff4c7;
-
-    font-size:16px;
+    color:#fff4bd;
 }
 
 .enter{
+    margin-top:40px;
 
-    margin-top:28px;
+    border:none;
+    border-radius:50px;
 
-    padding:14px 27px;
+    padding:20px 35px;
 
-    border:0;
-
-    border-radius:30px;
-
-    background:
-        linear-gradient(
-            45deg,
-            #ffd000,
-            #fff08a
-        );
-
-    color:#352300;
-
+    font-size:20px;
     font-weight:bold;
 
-    font-size:16px;
+    color:#4d3300;
+
+    background:linear-gradient(
+        90deg,
+        #ffd21c,
+        #fff27c,
+        #ffd21c
+    );
 
     box-shadow:
-        0 0 20px #ffd000;
+    0 0 10px #ffd000,
+    0 0 30px #ffb700;
 
     cursor:pointer;
+
+    transition:
+    transform .2s,
+    box-shadow .2s;
 }
 
+.enter:hover{
+    transform:scale(1.06);
+}
 
-/* =====================================================
+.enter:active{
+    transform:scale(.95);
+}
+
+/* =========================
    UNIVERSO
-===================================================== */
+========================= */
 
 .universe{
-
     position:fixed;
     inset:0;
 
-    opacity:0;
+    display:none;
 
-    transition:2s;
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #25103e 0%,
+        #0d061a 45%,
+        #020006 100%
+    );
 }
 
-.universe.show{
-    opacity:1;
-}
+/* estrellas */
 
-
-/* =====================================================
-   ESTRELLAS
-===================================================== */
-
-.stars{
-
+.star{
     position:absolute;
-    inset:0;
 
-    background-image:
+    width:3px;
+    height:3px;
 
-        radial-gradient(
-            white 1px,
-            transparent 1px
-        ),
+    background:white;
 
-        radial-gradient(
-            white 1px,
-            transparent 1px
-        );
+    border-radius:50%;
 
-    background-size:
-        80px 80px,
-        140px 140px;
-
-    background-position:
-        10px 20px,
-        50px 70px;
-
-    opacity:.5;
+    animation:twinkle 2s infinite alternate;
 }
 
+@keyframes twinkle{
 
-/* =====================================================
-   TÍTULO
-===================================================== */
+    from{
+        opacity:.2;
+        transform:scale(.6);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+/* titulo */
 
 .title{
-
     position:absolute;
 
-    top:15px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:95%;
+    top:20px;
+    left:0;
+    right:0;
 
     text-align:center;
+
+    font-size:24px;
+
+    color:#ffe76b;
+
+    text-shadow:
+    0 0 10px #ffd000,
+    0 0 25px #ffae00;
 
     z-index:50;
 }
 
-.title h1{
+/* espacio central */
 
-    color:#ffe66d;
-
-    font-size:
-        clamp(23px,6vw,42px);
-
-    text-shadow:
-        0 0 10px #ffd000,
-        0 0 25px #ffae00;
-}
-
-.title p{
-
-    margin-top:6px;
-
-    color:#fff3c4;
-
-    font-size:13px;
-}
-
-
-/* =====================================================
-   SOL
-===================================================== */
-
-.sun{
-
+.space{
     position:absolute;
 
     left:50%;
-    top:55%;
+    top:50%;
 
-    transform:
-        translate(-50%,-50%);
+    width:0;
+    height:0;
 
-    width:105px;
-    height:105px;
+    transform:translate(-50%,-50%);
+}
 
-    border-radius:50%;
+/* =========================
+   SOL
+========================= */
 
-    display:flex;
+.sun{
+    position:absolute;
 
-    align-items:center;
-    justify-content:center;
+    transform:translate(-50%,-50%);
 
-    font-size:48px;
-
-    background:
-        radial-gradient(
-            circle,
-            #fffbd0,
-            #ffe72b 35%,
-            #ffae00 70%,
-            #ff6a00
-        );
-
-    box-shadow:
-
-        0 0 20px #fff000,
-        0 0 55px #ffc400,
-        0 0 120px #ff8500;
+    font-size:85px;
 
     z-index:20;
 
-    animation:sol 3s infinite alternate;
+    filter:
+    drop-shadow(0 0 10px #ffd000)
+    drop-shadow(0 0 35px #ff9d00);
+
+    animation:
+    sunPulse 2s ease-in-out infinite alternate;
 }
 
-@keyframes sol{
+@keyframes sunPulse{
 
     from{
-        transform:
-            translate(-50%,-50%)
-            scale(1);
+        transform:translate(-50%,-50%) scale(.95);
     }
 
     to{
-        transform:
-            translate(-50%,-50%)
-            scale(1.08);
+        transform:translate(-50%,-50%) scale(1.08);
     }
 }
 
-
-/* =====================================================
-   ÓRBITAS
-===================================================== */
+/* =========================
+   ORBITAS
+========================= */
 
 .orbit{
-
     position:absolute;
 
     left:50%;
-    top:55%;
+    top:50%;
 
-    border:
-        1px dashed
-        rgba(255,255,255,.2);
+    border:1px solid rgba(255,221,80,.25);
 
     border-radius:50%;
 
-    transform:
-        translate(-50%,-50%);
+    transform:translate(-50%,-50%);
 }
 
 .orbit1{
+    width:230px;
+    height:230px;
 
-    width:180px;
-    height:180px;
-
-    animation:girar1 12s linear infinite;
+    animation:rotate1 18s linear infinite;
 }
 
 .orbit2{
+    width:340px;
+    height:340px;
 
-    width:290px;
-    height:290px;
-
-    animation:girar2 18s linear infinite reverse;
+    animation:rotate2 25s linear infinite;
 }
 
 .orbit3{
+    width:450px;
+    height:450px;
 
-    width:410px;
-    height:410px;
-
-    animation:girar3 25s linear infinite;
+    animation:rotate3 32s linear infinite;
 }
 
 .orbit4{
+    width:560px;
+    height:560px;
 
-    width:530px;
-    height:530px;
-
-    animation:girar4 33s linear infinite reverse;
+    animation:rotate4 40s linear infinite;
 }
 
-@keyframes girar1{
-
+@keyframes rotate1{
     from{
-        transform:
-            translate(-50%,-50%)
-            rotate(0);
+        transform:translate(-50%,-50%) rotate(0deg);
     }
 
     to{
-        transform:
-            translate(-50%,-50%)
-            rotate(360deg);
+        transform:translate(-50%,-50%) rotate(360deg);
     }
 }
 
-@keyframes girar2{
-
+@keyframes rotate2{
     from{
-        transform:
-            translate(-50%,-50%)
-            rotate(0);
+        transform:translate(-50%,-50%) rotate(360deg);
     }
 
     to{
-        transform:
-            translate(-50%,-50%)
-            rotate(360deg);
+        transform:translate(-50%,-50%) rotate(0deg);
     }
 }
 
-@keyframes girar3{
-
+@keyframes rotate3{
     from{
-        transform:
-            translate(-50%,-50%)
-            rotate(0);
+        transform:translate(-50%,-50%) rotate(0deg);
     }
 
     to{
-        transform:
-            translate(-50%,-50%)
-            rotate(360deg);
+        transform:translate(-50%,-50%) rotate(360deg);
     }
 }
 
-@keyframes girar4{
-
+@keyframes rotate4{
     from{
-        transform:
-            translate(-50%,-50%)
-            rotate(0);
+        transform:translate(-50%,-50%) rotate(360deg);
     }
 
     to{
-        transform:
-            translate(-50%,-50%)
-            rotate(360deg);
+        transform:translate(-50%,-50%) rotate(0deg);
     }
 }
 
-
-/* =====================================================
-   PLANETAS
-===================================================== */
+/* =========================
+   FLORES
+========================= */
 
 .planet{
-
     position:absolute;
 
     left:50%;
-    top:-48px;
+    top:-30px;
 
-    width:100px;
-    height:100px;
-
-    transform:
-        translateX(-50%);
+    transform:translateX(-50%);
 
     cursor:pointer;
 
-    z-index:40;
+    text-align:center;
+
+    z-index:30;
 }
 
-
-/* =====================================================
-   FLORES
-===================================================== */
-
 .flower{
+    font-size:55px;
 
-    width:90px;
-    height:90px;
+    filter:
+    drop-shadow(0 0 8px #ffd000);
 
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 8%,
-            #fff36b 0 13%,
-            transparent 14%
-        ),
-
-        radial-gradient(
-            circle at 92% 50%,
-            #ffe52b 0 13%,
-            transparent 14%
-        ),
-
-        radial-gradient(
-            circle at 50% 92%,
-            #ffd51a 0 13%,
-            transparent 14%
-        ),
-
-        radial-gradient(
-            circle at 8% 50%,
-            #ffe52b 0 13%,
-            transparent 14%
-        ),
-
-        radial-gradient(
-            circle at 25% 25%,
-            #ffec4d 0 13%,
-            transparent 14%
-        ),
-
-        radial-gradient(
-            circle at 75% 25%,
-            #ffe52b 0 13%,
-            transparent 14%
-        ),
-
-        radial-gradient(
-            circle at 75% 75%,
-            #ffd51a 0 13%,
-            transparent 14%
-        ),
-
-        radial-gradient(
-            circle at 25% 75%,
-            #ffea3a 0 13%,
-            transparent 14%
-        );
-
-    box-shadow:
-
-        0 0 15px #ffd000,
-        0 0 35px rgba(255,210,0,.7);
-
-    transition:.3s;
+    transition:transform .3s;
 }
 
 .planet:hover .flower{
-
-    transform:scale(1.15);
+    transform:scale(1.2);
 }
-
-
-/* =====================================================
-   AVATARES ANIME SIN IMÁGENES
-===================================================== */
-
-.avatar{
-
-    width:48px;
-    height:48px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    font-size:29px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #ddd
-        );
-
-    border:
-        3px solid #fff3a0;
-
-    box-shadow:
-        0 0 12px #fff000;
-
-    z-index:5;
-
-    position:relative;
-}
-
-
-/* Cabello estilizado */
-
-.avatar::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:100%;
-    height:55%;
-
-    top:-2px;
-
-    border-radius:
-        50% 50% 30% 30%;
-
-    background:
-        var(--hair,#24163d);
-
-    z-index:-1;
-}
-
-
-/* Colores diferentes */
-
-.nezuko{
-    --hair:#211326;
-}
-
-.tanjiro{
-    --hair:#17131c;
-}
-
-.deku{
-    --hair:#101b12;
-}
-
-.sailor{
-    --hair:#182b63;
-}
-
-.naruto{
-    --hair:#d87818;
-}
-
-.goku{
-    --hair:#111;
-}
-
-.mikasa{
-    --hair:#20191b;
-}
-
-.luffy{
-    --hair:#321b10;
-}
-
-
-/* =====================================================
-   NOMBRES
-===================================================== */
 
 .name{
-
-    position:absolute;
-
-    top:98px;
-
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-    white-space:nowrap;
-
-    color:#ffe66d;
+    margin-top:3px;
 
     font-size:12px;
 
-    font-weight:bold;
+    color:#ffe979;
 
-    text-shadow:
-        0 2px 5px #000;
+    white-space:nowrap;
 }
 
-
-/* =====================================================
-   MENSAJES
-===================================================== */
+/* mensajes */
 
 .message{
-
     position:absolute;
 
-    width:200px;
+    width:220px;
 
-    bottom:105px;
+    padding:15px;
 
     left:50%;
+    top:65px;
 
-    transform:
-        translateX(-50%)
-        scale(.7);
+    transform:translateX(-50%);
 
-    padding:14px;
+    background:rgba(15,5,30,.95);
 
-    border:
-        2px solid #ffd83d;
+    border:1px solid #ffd83d;
 
-    border-radius:18px;
+    border-radius:15px;
 
-    background:
-        rgba(17,7,40,.97);
+    color:#fff3a6;
 
-    text-align:center;
-
-    font-size:13px;
+    font-size:14px;
 
     line-height:1.5;
 
     box-shadow:
-        0 0 25px
-        rgba(255,210,0,.6);
+    0 0 20px rgba(255,210,0,.4);
 
-    opacity:0;
+    display:none;
 
-    visibility:hidden;
-
-    transition:.3s;
-
-    z-index:200;
+    z-index:100;
 }
 
 .planet.active .message{
-
-    opacity:1;
-
-    visibility:visible;
-
-    transform:
-        translateX(-50%)
-        scale(1);
+    display:block;
 }
 
-
-/* =====================================================
+/* =========================
    CARTA
-===================================================== */
+========================= */
 
 .letter-button{
+    position:absolute;
 
-    position:fixed;
-
-    bottom:18px;
-
+    bottom:25px;
     left:50%;
 
-    transform:
-        translateX(-50%);
+    transform:translateX(-50%);
 
-    padding:13px 23px;
+    padding:15px 25px;
 
-    border:0;
-
+    border:none;
     border-radius:30px;
 
-    background:
-        linear-gradient(
-            45deg,
-            #ffd000,
-            #fff080
-        );
+    background:#ffd629;
 
-    color:#352300;
+    color:#3e2b00;
 
+    font-size:17px;
     font-weight:bold;
+
+    box-shadow:0 0 20px #ffc400;
 
     cursor:pointer;
 
-    z-index:80;
-
-    box-shadow:
-        0 0 20px
-        rgba(255,210,0,.7);
+    z-index:100;
 }
 
 .overlay{
-
     position:fixed;
 
     inset:0;
 
-    background:
-        rgba(0,0,0,.82);
+    background:rgba(0,0,0,.8);
 
-    display:flex;
+    display:none;
 
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
-    opacity:0;
-
-    visibility:hidden;
-
-    transition:.4s;
+    padding:20px;
 
     z-index:500;
 }
 
-.overlay.show{
-
-    opacity:1;
-    visibility:visible;
-}
-
 .letter{
+    max-width:500px;
 
-    width:88%;
-    max-width:430px;
-
-    padding:28px;
-
-    text-align:center;
+    padding:30px;
 
     background:
-        linear-gradient(
-            145deg,
-            #2a175a,
-            #0c0723
-        );
+    linear-gradient(
+        145deg,
+        #fff7bd,
+        #ffe680
+    );
 
-    border:
-        2px solid #ffd83d;
+    color:#4a3200;
 
     border-radius:25px;
 
+    text-align:center;
+
     box-shadow:
-        0 0 40px #ffd000;
+    0 0 30px #ffd000;
 }
 
 .letter h2{
-
-    color:#ffe66d;
-
-    margin-bottom:15px;
+    margin-bottom:20px;
 }
 
 .letter p{
-
+    font-size:17px;
     line-height:1.7;
-
-    color:#fff5cc;
-
-    margin-bottom:10px;
 }
 
 .close{
+    margin-top:20px;
 
-    margin-top:10px;
+    border:none;
 
-    padding:10px 22px;
-
-    border:0;
+    padding:10px 25px;
 
     border-radius:20px;
 
-    background:#ffd83d;
+    background:#5c3b00;
 
-    color:#332000;
+    color:white;
 
-    font-weight:bold;
+    cursor:pointer;
 }
 
-
-/* =====================================================
-   CORAZONES Y FLORES FLOTANTES
-===================================================== */
+/* =========================
+   FLORES FLOTANTES
+========================= */
 
 .floating{
+    position:absolute;
 
-    position:fixed;
+    bottom:-50px;
 
-    bottom:-40px;
+    font-size:25px;
+
+    animation:rise 8s linear forwards;
 
     pointer-events:none;
 
-    z-index:10;
-
-    animation:
-        subir linear forwards;
+    z-index:5;
 }
 
-@keyframes subir{
+@keyframes rise{
 
-    from{
-
-        transform:
-            translateY(0)
-            rotate(0)
-            scale(.7);
-
+    0%{
+        transform:translateY(0) rotate(0deg);
         opacity:0;
     }
 
@@ -879,113 +540,65 @@ body{
         opacity:1;
     }
 
-    to{
-
+    100%{
         transform:
-            translateY(-110vh)
-            rotate(360deg)
-            scale(1.2);
+        translateY(-110vh)
+        rotate(360deg);
 
         opacity:0;
     }
 }
 
-
-/* =====================================================
-   MÓVIL
-===================================================== */
+/* =========================
+   CELULAR
+========================= */
 
 @media(max-width:600px){
 
-    .sun{
-
-        width:75px;
-        height:75px;
-
-        font-size:34px;
-    }
-
     .orbit1{
-
-        width:145px;
-        height:145px;
+        width:180px;
+        height:180px;
     }
 
     .orbit2{
-
-        width:235px;
-        height:235px;
+        width:270px;
+        height:270px;
     }
 
     .orbit3{
-
-        width:325px;
-        height:325px;
+        width:360px;
+        height:360px;
     }
 
     .orbit4{
-
-        width:415px;
-        height:415px;
+        width:450px;
+        height:450px;
     }
 
     .flower{
-
-        width:70px;
-        height:70px;
+        font-size:45px;
     }
 
-    .avatar{
-
-        width:37px;
-        height:37px;
-
-        font-size:23px;
+    .sun{
+        font-size:70px;
     }
 
-    .planet{
-
-        top:-38px;
+    .title{
+        font-size:18px;
     }
 
-    .name{
-
-        top:76px;
-
-        font-size:10px;
-    }
-
-    .message{
-
-        width:175px;
-
-        font-size:12px;
-    }
-
-    .title h1{
-
-        font-size:24px;
-    }
-
-    .title p{
-
-        font-size:11px;
-    }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
+<!-- =========================
+     INTRO
+========================= -->
 
-<!-- =====================================================
-     INTRODUCCIÓN
-===================================================== -->
-
-<div class="intro" id="intro">
+<section class="intro" id="intro">
 
     <div class="intro-box">
 
@@ -998,20 +611,18 @@ body{
         </h1>
 
         <p>
-
-            Este lugar fue creado para recordarte
-            que incluso después de las noches más oscuras,
+            Este lugar fue creado para recordarte que incluso
+            después de las noches más oscuras,
             siempre puede volver a salir el sol.
+        </p>
 
-            <br><br>
-
+        <p>
             ✨ Tienes mucho por vivir. ✨
-
         </p>
 
         <button
             class="enter"
-            onclick="enterUniverse()">
+            id="enterButton">
 
             🌻 Entrar a mi universo 🌻
 
@@ -1019,33 +630,20 @@ body{
 
     </div>
 
-</div>
+</section>
 
 
-<!-- =====================================================
+<!-- =========================
      UNIVERSO
-===================================================== -->
+========================= -->
 
-<div class="universe" id="universe">
-
-    <div class="stars"></div>
-
+<main class="universe" id="universe">
 
     <div class="title">
-
-        <h1>
-            🌻 Un universo para ti 🌻
-        </h1>
-
-        <p>
-            Toca una flor para descubrir su mensaje ✨
-        </p>
-
+        🌻 Tu pequeño universo 🌻
     </div>
 
-
     <div class="space">
-
 
         <!-- SOL -->
 
@@ -1054,286 +652,367 @@ body{
         </div>
 
 
-        <!-- =================================================
-             NEZUKO
-        ================================================== -->
+        <!-- ORBITA 1 -->
 
         <div class="orbit orbit1">
 
-            <div class="planet">
+            <div
+                class="planet"
+                data-message="No importa lo difícil que sea este momento. Sigue adelante. Dentro de ti hay una fuerza que quizá todavía no has descubierto. 💗">
 
                 <div class="flower">
-
-                    <div class="avatar nezuko">
-                        🌸
-                    </div>
-
+                    🌸
                 </div>
 
                 <div class="name">
-                    🌸 Nezuko
+                    Nezuko
                 </div>
 
-                <div class="message">
-
-                    No tienes que ser fuerte
-                    todos los días.
-
-                    <br><br>
-
-                    Está bien llorar,
-                    descansar y pedir ayuda.
-
-                    <br><br>
-
-                    💗 Tu valor sigue ahí,
-                    incluso cuando tú no lo sientas.
-
-                </div>
+                <div class="message"></div>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             TANJIRO
-        ================================================== -->
+        <!-- ORBITA 2 -->
 
         <div class="orbit orbit2">
 
-            <div class="planet">
+            <div
+                class="planet"
+                data-message="Cada día que decides continuar ya es una pequeña victoria. No tienes que tener todo resuelto hoy. 🌱">
 
                 <div class="flower">
-
-                    <div class="avatar tanjiro">
-                        ⚔️
-                    </div>
-
+                    ⚔️
                 </div>
 
                 <div class="name">
-                    ⚔️ Tanjiro
+                    Tanjiro
                 </div>
 
-                <div class="message">
-
-                    Puede que ahora estés
-                    atravesando una etapa difícil.
-
-                    <br><br>
-
-                    Pero este momento
-                    no define toda tu historia.
-
-                    <br><br>
-
-                    🌙 Todavía quedan
-                    días hermosos por vivir.
-
-                </div>
+                <div class="message"></div>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             DEKU
-        ================================================== -->
+        <!-- ORBITA 3 -->
 
         <div class="orbit orbit3">
 
-            <div class="planet">
+            <div
+                class="planet"
+                data-message="Tus sueños todavía tienen un lugar en este mundo. No dejes que un momento difícil te haga olvidar todo lo que puedes llegar a ser. 💚">
 
                 <div class="flower">
-
-                    <div class="avatar deku">
-                        💚
-                    </div>
-
+                    💚
                 </div>
 
                 <div class="name">
-                    💚 Deku
+                    Deku
                 </div>
 
-                <div class="message">
-
-                    No necesitas ser perfecta.
-
-                    <br><br>
-
-                    No tienes que compararte
-                    con nadie.
-
-                    <br><br>
-
-                    💚 Eres valiosa
-                    simplemente por ser tú.
-
-                </div>
+                <div class="message"></div>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             SAILOR MOON
-        ================================================== -->
+        <!-- ORBITA 4 -->
 
         <div class="orbit orbit4">
 
-            <div class="planet">
+            <div
+                class="planet"
+                data-message="Aunque hoy no puedas ver la luz, eso no significa que haya desaparecido. A veces solamente necesitamos tiempo para volver a encontrarla. 🌙">
 
                 <div class="flower">
-
-                    <div class="avatar sailor">
-                        🌙
-                    </div>
-
+                    🌙
                 </div>
 
                 <div class="name">
-                    🌙 Sailor Moon
+                    Sailor Moon
                 </div>
 
-                <div class="message">
-
-                    Incluso las estrellas
-                    desaparecen durante el día.
-
-                    <br><br>
-
-                    Eso no significa que hayan
-                    dejado de existir.
-
-                    <br><br>
-
-                    ✨ Tu luz también sigue ahí.
-
-                </div>
+                <div class="message"></div>
 
             </div>
 
         </div>
 
-
-        <!-- =================================================
-             NARUTO
-        ================================================== -->
-
-        <div
-            class="planet"
-            style="top:22%;left:13%;">
-
-            <div class="flower">
-
-                <div class="avatar naruto">
-                    🍥
-                </div>
-
-            </div>
-
-            <div class="name">
-                🍥 Naruto
-            </div>
-
-            <div class="message">
-
-                Un mal día
-                no significa una mala vida.
-
-                <br><br>
-
-                📖 Tu historia todavía
-                tiene muchos capítulos
-                por escribir.
-
-            </div>
-
-        </div>
+    </div>
 
 
-        <!-- =================================================
-             GOKU
-        ================================================== -->
+    <!-- CARTA -->
 
-        <div
-            class="planet"
-            style="top:24%;left:83%;">
+    <button
+        class="letter-button"
+        id="letterButton">
 
-            <div class="flower">
+        💛 Tengo algo que decirte
 
-                <div class="avatar goku">
-                    🧡
-                </div>
-
-            </div>
-
-            <div class="name">
-                🧡 Goku
-            </div>
-
-            <div class="message">
-
-                No importa cuántas veces caigas.
-
-                <br><br>
-
-                Lo importante es que,
-                cuando puedas,
-                vuelvas a levantarte.
-
-                <br><br>
-
-                ✨ Un pequeño paso
-                también es avanzar.
-
-            </div>
-
-        </div>
+    </button>
 
 
-        <!-- =================================================
-             MIKASA
-        ================================================== -->
-
-        <div
-            class="planet"
-            style="top:73%;left:12%;">
-
-            <div class="flower">
-
-                <div class="avatar mikasa">
-                    ❤️
-                </div>
-
-            </div>
-
-            <div class="name">
-                ❤️ Mikasa
-            </div>
-
-            <div class="message">
-
-                Has sobrevivido
-                a momentos que alguna vez
-                pensaste que no superarías.
-
-                <br><br>
-
-                ❤️ Recuerda la fuerza
-                que ya existe dentro de ti.
-
-            </div>
-
-        </div>
+</main>
 
 
-        <!-- =================================================
-             LUFFY
-        ================================================== -->
+<!-- =========================
+     CARTA MODAL
+========================= -->
 
-     
+<div
+    class="overlay"
+    id="overlay">
+
+    <div class="letter">
+
+        <h2>
+            💛 Para ti
+        </h2>
+
+        <p>
+            Quizá no pueda solucionar todo lo que estás viviendo,
+            pero quiero que recuerdes algo:
+        </p>
+
+        <br>
+
+        <p>
+            <strong>
+                No estás obligada a ser fuerte todo el tiempo.
+            </strong>
+        </p>
+
+        <br>
+
+        <p>
+            Puedes descansar.
+            Puedes llorar.
+            Puedes tener días malos.
+            Y aun así seguir siendo una persona increíble.
+        </p>
+
+        <br>
+
+        <p>
+            🌻 Espero que algún día vuelvas a mirar hacia arriba
+            y descubras que todavía quedan muchas cosas bonitas
+            esperándote.
+        </p>
+
+        <br>
+
+        <p>
+            💛 Nunca olvides que tu historia todavía continúa.
+        </p>
+
+        <button
+            class="close"
+            id="closeButton">
+
+            Cerrar 💛
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==================================
+   ENTRAR AL UNIVERSO
+================================== */
+
+const enterButton =
+document.getElementById("enterButton");
+
+const intro =
+document.getElementById("intro");
+
+const universe =
+document.getElementById("universe");
+
+
+enterButton.addEventListener("click", function(){
+
+    intro.style.opacity = "0";
+
+    setTimeout(function(){
+
+        intro.style.display = "none";
+
+        universe.style.display = "block";
+
+    },1000);
+
+});
+
+
+/* ==================================
+   MENSAJES DE LAS FLORES
+================================== */
+
+const planets =
+document.querySelectorAll(".planet");
+
+
+planets.forEach(function(planet){
+
+    planet.addEventListener("click",function(event){
+
+        event.stopPropagation();
+
+        planets.forEach(function(other){
+
+            if(other !== planet){
+
+                other.classList.remove("active");
+
+            }
+
+        });
+
+        const message =
+        planet.querySelector(".message");
+
+        message.textContent =
+        planet.dataset.message;
+
+        planet.classList.toggle("active");
+
+    });
+
+});
+
+
+/* ==================================
+   CERRAR MENSAJES
+================================== */
+
+document.addEventListener("click",function(){
+
+    planets.forEach(function(planet){
+
+        planet.classList.remove("active");
+
+    });
+
+});
+
+
+/* ==================================
+   CARTA
+================================== */
+
+const letterButton =
+document.getElementById("letterButton");
+
+const overlay =
+document.getElementById("overlay");
+
+const closeButton =
+document.getElementById("closeButton");
+
+
+letterButton.addEventListener("click",function(){
+
+    overlay.style.display = "flex";
+
+});
+
+
+closeButton.addEventListener("click",function(){
+
+    overlay.style.display = "none";
+
+});
+
+
+overlay.addEventListener("click",function(event){
+
+    if(event.target === overlay){
+
+        overlay.style.display = "none";
+
+    }
+
+});
+
+
+/* ==================================
+   ESTRELLAS
+================================== */
+
+for(let i=0;i<100;i++){
+
+    const star =
+    document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left =
+    Math.random()*100 + "%";
+
+    star.style.top =
+    Math.random()*100 + "%";
+
+    star.style.animationDelay =
+    Math.random()*3 + "s";
+
+    universe.appendChild(star);
+
+}
+
+
+/* ==================================
+   FLORES FLOTANTES
+================================== */
+
+function createFloating(){
+
+    const flower =
+    document.createElement("div");
+
+    flower.className = "floating";
+
+    const flowers = [
+        "🌻",
+        "🌼",
+        "💛",
+        "✨",
+        "🌸",
+        "⭐"
+    ];
+
+    flower.textContent =
+    flowers[Math.floor(Math.random()*flowers.length)];
+
+    flower.style.left =
+    Math.random()*100 + "%";
+
+    flower.style.animationDuration =
+    (5 + Math.random()*5) + "s";
+
+    universe.appendChild(flower);
+
+    setTimeout(function(){
+
+        flower.remove();
+
+    },10000);
+
+}
+
+
+setInterval(createFloating,900);
+
+</script>
+
+</body>
+</html>
