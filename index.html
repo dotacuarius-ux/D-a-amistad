@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,
-initial-scale=1.0,
-maximum-scale=5.0,
-user-scalable=yes">
+      content="width=device-width,
+      initial-scale=1.0,
+      maximum-scale=5.0,
+      user-scalable=yes">
 
 <title>🌻 Galaxia de Flores Amarillas</title>
 
 <style>
 
 /* =========================
-   CONFIGURACIÓN GENERAL
+   GENERAL
 ========================= */
 
 *{
@@ -31,7 +32,7 @@ html,body{
 }
 
 /* =========================
-   INTRO
+   PANTALLA DE INICIO
 ========================= */
 
 #intro{
@@ -50,50 +51,48 @@ html,body{
     background:
     radial-gradient(
         circle at center,
-        #54206f 0%,
-        #180626 45%,
-        #020006 100%
+        #55216f,
+        #190629 50%,
+        #020006
     );
 
-    transition:opacity 1s;
+    transition:opacity .7s ease;
 }
 
 .introBox{
 
     width:90%;
     max-width:600px;
-
-    color:white;
 }
 
 .bigFlower{
 
-    font-size:100px;
+    font-size:95px;
 
     animation:
-    float 3s ease-in-out infinite,
-    glow 2s infinite alternate;
+    flotar 3s ease-in-out infinite,
+    brillo 2s infinite alternate;
 }
 
-@keyframes float{
+@keyframes flotar{
 
     0%,100%{
         transform:translateY(0);
     }
 
     50%{
-        transform:translateY(-18px);
+        transform:translateY(-15px);
     }
 }
 
-@keyframes glow{
+@keyframes brillo{
 
     from{
         filter:drop-shadow(0 0 5px gold);
     }
 
     to{
-        filter:drop-shadow(0 0 40px #ffd000);
+        filter:drop-shadow(0 0 40px gold);
     }
 }
 
@@ -101,35 +100,35 @@ html,body{
 
     margin-top:20px;
 
-    color:#ffe66b;
-
     font-size:clamp(
         30px,
         8vw,
-        55px
+        52px
     );
+
+    color:#ffe66b;
 
     text-shadow:
     0 0 10px #ffd000,
-    0 0 30px #ff9900;
+    0 0 30px #ff9d00;
 }
 
 .introBox p{
 
-    margin-top:22px;
+    margin-top:20px;
 
-    color:#fff6c0;
+    color:#fff6c2;
 
     font-size:18px;
 
-    line-height:1.7;
+    line-height:1.6;
 }
 
 .enter{
 
     margin-top:30px;
 
-    padding:17px 30px;
+    padding:18px 30px;
 
     border:none;
 
@@ -148,6 +147,8 @@ html,body{
     0 0 40px #ff9d00;
 
     cursor:pointer;
+
+    -webkit-tap-highlight-color:transparent;
 }
 
 /* =========================
@@ -165,12 +166,11 @@ html,body{
     overflow:hidden;
 
     background:
-
     radial-gradient(
         ellipse at center,
-        #442060 0%,
-        #1b092c 35%,
-        #07000f 70%,
+        #47205e 0%,
+        #1b092d 40%,
+        #07000f 75%,
         #010003 100%
     );
 
@@ -185,8 +185,8 @@ html,body{
 
     position:absolute;
 
-    width:800px;
-    height:400px;
+    width:850px;
+    height:450px;
 
     left:50%;
     top:50%;
@@ -200,9 +200,9 @@ html,body{
     background:
     radial-gradient(
         ellipse,
-        rgba(255,215,80,.25),
-        rgba(255,180,0,.10),
-        rgba(180,50,255,.08),
+        rgba(255,220,80,.28),
+        rgba(255,170,0,.12),
+        rgba(180,50,255,.10),
         transparent 70%
     );
 
@@ -219,22 +219,22 @@ html,body{
 
     position:fixed;
 
-    top:15px;
+    top:18px;
 
     left:0;
     right:0;
 
     text-align:center;
 
-    color:#ffe66b;
+    color:#ffe76b;
 
     font-size:20px;
 
-    z-index:500;
-
     text-shadow:
     0 0 10px gold,
-    0 0 25px #ff9900;
+    0 0 25px #ff9d00;
+
+    z-index:500;
 
     pointer-events:none;
 }
@@ -247,8 +247,8 @@ html,body{
 
     position:absolute;
 
-    width:2200px;
-    height:2200px;
+    width:2000px;
+    height:2000px;
 
     left:50%;
     top:50%;
@@ -258,8 +258,6 @@ html,body{
     scale(1);
 
     transform-origin:center;
-
-    transition:transform .15s ease-out;
 }
 
 /* =========================
@@ -273,18 +271,18 @@ html,body{
     width:3px;
     height:3px;
 
-    border-radius:50%;
-
     background:white;
 
+    border-radius:50%;
+
     box-shadow:
-    0 0 7px white;
+    0 0 6px white;
 
     animation:
-    twinkle 2s infinite alternate;
+    parpadear 2s infinite alternate;
 }
 
-@keyframes twinkle{
+@keyframes parpadear{
 
     from{
         opacity:.2;
@@ -293,7 +291,7 @@ html,body{
 
     to{
         opacity:1;
-        transform:scale(1.6);
+        transform:scale(1.5);
     }
 }
 
@@ -305,36 +303,37 @@ html,body{
 
     position:absolute;
 
-    color:#fff7a0;
+    color:#fff5a0;
 
-    font-size:22px;
+    font-size:25px;
 
     animation:
-    spinStar 4s linear infinite;
+    brilloEstrella 3s infinite alternate;
 }
 
-@keyframes spinStar{
+@keyframes brilloEstrella{
 
     from{
-        transform:rotate(0deg) scale(.8);
-    }
-
-    50%{
-        transform:rotate(180deg) scale(1.3);
+        opacity:.4;
+        transform:scale(.8);
     }
 
     to{
-        transform:rotate(360deg) scale(.8);
+        opacity:1;
+        transform:scale(1.4);
     }
 }
 
 /* =========================
-   CENTRO
+   CENTRO DE LA GALAXIA
 ========================= */
 
 .core{
 
     position:absolute;
+
+    width:280px;
+    height:280px;
 
     left:50%;
     top:50%;
@@ -342,56 +341,53 @@ html,body{
     transform:
     translate(-50%,-50%);
 
-    width:300px;
-    height:300px;
-
     border-radius:50%;
 
     background:
     radial-gradient(
         circle,
-        #fff7a0 0%,
-        #ffd51b 22%,
-        #ffb000 38%,
-        rgba(255,170,0,.35) 58%,
-        transparent 72%
+        #fff8a0 0%,
+        #ffd51c 25%,
+        #ffae00 42%,
+        rgba(255,170,0,.35) 60%,
+        transparent 73%
     );
 
     box-shadow:
     0 0 40px #ffd000,
-    0 0 100px #ffb000,
-    0 0 180px rgba(255,180,0,.5);
+    0 0 100px #ffae00,
+    0 0 170px rgba(255,180,0,.5);
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    font-size:110px;
+    font-size:100px;
 
     z-index:20;
 
     animation:
-    corePulse 3s infinite alternate;
+    pulso 3s infinite alternate;
 }
 
-@keyframes corePulse{
+@keyframes pulso{
 
     from{
         box-shadow:
-        0 0 35px #ffd000,
-        0 0 90px #ffb000;
+        0 0 30px #ffd000,
+        0 0 80px #ffae00;
     }
 
     to{
         box-shadow:
         0 0 60px #fff000,
-        0 0 150px #ffb000;
+        0 0 140px #ffae00;
     }
 }
 
 /* =========================
-   FLORES GENERALES
+   FLORES
 ========================= */
 
 .flower{
@@ -412,15 +408,15 @@ html,body{
 
     z-index:100;
 
-    transition:
-    transform .3s,
-    filter .3s;
-
     animation:
-    flowerFloat 4s ease-in-out infinite;
+    movimientoFlor 4s ease-in-out infinite;
+
+    transition:transform .25s;
+
+    -webkit-tap-highlight-color:transparent;
 }
 
-@keyframes flowerFloat{
+@keyframes movimientoFlor{
 
     0%,100%{
         margin-top:0;
@@ -431,24 +427,21 @@ html,body{
     }
 }
 
-.flower:hover{
+.flower:active{
 
     transform:scale(1.25);
-
-    filter:
-    drop-shadow(0 0 20px #fff000);
 }
 
 /* =========================
-   ROSA AMARILLA CSS
+   ROSAS AMARILLAS
 ========================= */
 
 .yellowRose{
 
     position:absolute;
 
-    width:75px;
-    height:75px;
+    width:85px;
+    height:125px;
 
     cursor:pointer;
 
@@ -458,155 +451,147 @@ html,body{
     drop-shadow(0 0 10px #ffd000);
 
     animation:
-    roseFloat 4s ease-in-out infinite;
+    movimientoRosa 4s ease-in-out infinite;
+
+    -webkit-tap-highlight-color:transparent;
 }
 
-@keyframes roseFloat{
+@keyframes movimientoRosa{
 
     0%,100%{
-        transform:rotate(-3deg) translateY(0);
+        transform:translateY(0);
     }
 
     50%{
-        transform:rotate(3deg) translateY(-12px);
+        transform:translateY(-12px);
     }
-}
-
-.roseCenter{
-
-    position:absolute;
-
-    width:32px;
-    height:32px;
-
-    left:22px;
-    top:22px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
-        #ffea00,
-        #e5a900
-    );
-
-    z-index:5;
 }
 
 .rosePetal{
 
     position:absolute;
 
-    width:34px;
-    height:34px;
+    width:38px;
+    height:38px;
 
     border-radius:
     60% 40% 60% 40%;
 
     background:
     radial-gradient(
-        circle at 35% 30%,
-        #fff06a,
+        circle at 30% 25%,
+        #fff48a,
         #ffd000 55%,
-        #e6a500
+        #e7a000
     );
 
     box-shadow:
-    inset 0 0 5px #fff59d;
-
+    inset 0 0 5px #fff7a5;
 }
 
 .r1{
-    left:20px;
-    top:2px;
+    left:23px;
+    top:0;
 }
 
 .r2{
-    left:40px;
-    top:14px;
+    left:43px;
+    top:13px;
     transform:rotate(60deg);
 }
 
 .r3{
-    left:37px;
+    left:40px;
     top:38px;
     transform:rotate(120deg);
 }
 
 .r4{
-    left:15px;
-    top:42px;
+    left:20px;
+    top:47px;
     transform:rotate(180deg);
 }
 
 .r5{
     left:2px;
-    top:22px;
+    top:25px;
     transform:rotate(240deg);
 }
 
 .r6{
-    left:18px;
+    left:20px;
     top:20px;
     transform:rotate(300deg);
 }
 
-/* =========================
-   TALLO DE ROSA
-========================= */
+.roseCenter{
+
+    position:absolute;
+
+    left:27px;
+    top:27px;
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        #ffe900,
+        #d99100
+    );
+
+    z-index:5;
+}
 
 .roseStem{
 
     position:absolute;
 
+    left:39px;
+    top:68px;
+
     width:6px;
     height:55px;
 
-    left:35px;
-    top:65px;
+    border-radius:10px;
 
     background:
     linear-gradient(
         to right,
-        #367d25,
-        #72b52d,
-        #2c701f
+        #28651e,
+        #65a52a,
+        #2d701f
     );
-
-    border-radius:10px;
-
-    transform:rotate(5deg);
-
-    z-index:-1;
 }
 
 .leaf{
 
     position:absolute;
 
-    width:25px;
-    height:13px;
+    width:30px;
+    height:15px;
 
     background:#62a82a;
 
     border-radius:
     100% 0 100% 0;
-
 }
 
 .leaf1{
 
-    left:7px;
-    top:85px;
+    left:8px;
+    top:88px;
 
     transform:rotate(-30deg);
 }
 
 .leaf2{
 
-    left:39px;
-    top:88px;
+    left:43px;
+    top:92px;
 
     transform:rotate(30deg);
 }
@@ -619,38 +604,38 @@ html,body{
 
     position:absolute;
 
-    width:260px;
+    width:250px;
 
-    padding:18px;
+    padding:16px;
 
     left:50%;
-    top:75px;
+    top:72px;
 
     transform:
     translateX(-50%);
 
     background:
-    rgba(20,5,35,.97);
+    rgba(17,4,30,.98);
 
     border:
     2px solid #ffd52b;
 
     border-radius:20px;
 
-    color:#fff3a0;
+    color:#fff2a0;
 
     font-size:15px;
 
-    line-height:1.6;
+    line-height:1.55;
 
     text-align:center;
-
-    display:none;
 
     box-shadow:
     0 0 30px rgba(255,210,0,.7);
 
-    z-index:2000;
+    z-index:3000;
+
+    display:none;
 }
 
 .flower.open .message,
@@ -673,13 +658,13 @@ html,body{
     transform:
     translate(-50%,125px);
 
-    width:300px;
+    width:310px;
 
     text-align:center;
 
     color:#fff4a0;
 
-    font-size:17px;
+    font-size:16px;
 
     line-height:1.5;
 
@@ -697,7 +682,7 @@ html,body{
 
     position:fixed;
 
-    bottom:20px;
+    bottom:22px;
 
     left:50%;
 
@@ -714,9 +699,9 @@ html,body{
 
     color:#432900;
 
-    font-weight:bold;
-
     font-size:16px;
+
+    font-weight:bold;
 
     box-shadow:
     0 0 20px #ffd000;
@@ -724,6 +709,33 @@ html,body{
     z-index:900;
 
     cursor:pointer;
+}
+
+/* =========================
+   AYUDA
+========================= */
+
+.zoomHelp{
+
+    position:fixed;
+
+    left:50%;
+    bottom:78px;
+
+    transform:
+    translateX(-50%);
+
+    color:white;
+
+    font-size:13px;
+
+    opacity:.75;
+
+    text-align:center;
+
+    z-index:400;
+
+    pointer-events:none;
 }
 
 /* =========================
@@ -736,15 +748,15 @@ html,body{
 
     inset:0;
 
-    background:
-    rgba(0,0,0,.85);
-
     display:none;
 
     align-items:center;
     justify-content:center;
 
     padding:20px;
+
+    background:
+    rgba(0,0,0,.85);
 
     z-index:5000;
 }
@@ -762,16 +774,16 @@ html,body{
 
     border-radius:25px;
 
-    text-align:center;
-
     background:
     linear-gradient(
         145deg,
-        #fffbd1,
+        #fffbd0,
         #ffe36b
     );
 
-    color:#4c3400;
+    color:#493200;
+
+    text-align:center;
 
     box-shadow:
     0 0 50px #ffd000;
@@ -779,7 +791,7 @@ html,body{
 
 .letter h2{
 
-    font-size:29px;
+    font-size:28px;
 
     margin-bottom:20px;
 }
@@ -807,34 +819,6 @@ html,body{
 }
 
 /* =========================
-   AYUDA ZOOM
-========================= */
-
-.zoomHelp{
-
-    position:fixed;
-
-    bottom:75px;
-
-    left:50%;
-
-    transform:
-    translateX(-50%);
-
-    color:white;
-
-    font-size:13px;
-
-    opacity:.7;
-
-    z-index:400;
-
-    pointer-events:none;
-
-    text-align:center;
-}
-
-/* =========================
    CELULAR
 ========================= */
 
@@ -852,6 +836,13 @@ html,body{
         font-size:80px;
     }
 
+    .centerText{
+
+        width:260px;
+
+        font-size:15px;
+    }
+
     .flower{
 
         font-size:48px;
@@ -860,14 +851,16 @@ html,body{
 }
 
 </style>
+
 </head>
+
 
 <body>
 
 
-<!-- ==================================================
-     INTRO
-================================================== -->
+<!-- =================================================
+     INICIO
+================================================= -->
 
 <section id="intro">
 
@@ -882,19 +875,24 @@ html,body{
         </h1>
 
         <p>
-            🌻🌼🌷🌹🌺
+            🌻 🌼 🌷 🌺 🌹
         </p>
 
         <p>
             Un pequeño universo lleno de
-            flores amarillas creado para
-            recordarte que siempre existen
-            motivos para seguir adelante.
+            flores amarillas, estrellas y
+            mensajes para iluminar un poquito
+            tus días.
         </p>
+
+        <!--
+        IMPORTANTE:
+        El botón usa onclick directamente.
+        -->
 
         <button
             class="enter"
-            id="enter">
+            onclick="entrarGalaxia()">
 
             🌻 Entrar a la galaxia 🌻
 
@@ -905,40 +903,44 @@ html,body{
 </section>
 
 
-<!-- ==================================================
+<!-- =================================================
      GALAXIA
-================================================== -->
+================================================= -->
 
 <main id="galaxy">
 
     <div class="title">
+
         ✨ Una galaxia llena de flores amarillas ✨
+
     </div>
 
+
     <div id="world">
+
 
         <div class="nebula"></div>
 
 
-        <!-- ESTRELLAS -->
+        <!-- ESTRELLAS GRANDES -->
 
         <div class="bigStar"
-             style="left:12%;top:15%">
+             style="left:10%;top:15%">
             ✦
         </div>
 
         <div class="bigStar"
-             style="left:82%;top:12%">
+             style="left:84%;top:12%">
             ✧
         </div>
 
         <div class="bigStar"
-             style="left:15%;top:80%">
+             style="left:12%;top:80%">
             ✦
         </div>
 
         <div class="bigStar"
-             style="left:85%;top:78%">
+             style="left:86%;top:82%">
             ✧
         </div>
 
@@ -949,26 +951,22 @@ html,body{
             🌻
         </div>
 
+
         <div class="centerText">
 
-            💛 El universo puede ser enorme...
-
-            <br>
-
-            pero siempre hay un pequeño
-            lugar donde puede volver a salir
-            la luz.
+            💛 Incluso en la oscuridad
+            siempre puede existir una pequeña luz.
 
         </div>
 
 
-        <!-- ==================================================
+        <!-- =========================
              GIRASOLES
-        ================================================== -->
+        ========================== -->
 
         <div class="flower"
-             style="left:20%;top:25%"
-             data-message="🌻 Nunca olvides que incluso después de los días más difíciles, puede volver a salir el sol.">
+             style="left:18%;top:23%"
+             data-message="🌻 Después de un día difícil también puede llegar un día bonito. No pierdas la esperanza.">
 
             🌻
 
@@ -976,21 +974,21 @@ html,body{
 
 
         <div class="flower"
-             style="left:73%;top:22%"
-             data-message="💛 No tienes que tener todo resuelto hoy. Un paso pequeño también es avanzar.">
+             style="left:72%;top:21%"
+             data-message="💛 No tienes que solucionar todo hoy. Descansar también es una forma de avanzar.">
 
             🌻
 
         </div>
 
 
-        <!-- ==================================================
+        <!-- =========================
              MARGARITAS
-        ================================================== -->
+        ========================== -->
 
         <div class="flower"
-             style="left:12%;top:48%"
-             data-message="🌼 Que nunca te falten razones para sonreír, aunque sea una sonrisa pequeñita.">
+             style="left:10%;top:48%"
+             data-message="🌼 Que nunca te falten pequeñas razones para sonreír.">
 
             🌼
 
@@ -999,20 +997,20 @@ html,body{
 
         <div class="flower"
              style="left:84%;top:48%"
-             data-message="🌼 Eres importante. Incluso cuando tú misma no puedas verlo.">
+             data-message="🌼 Tu existencia importa mucho más de lo que imaginas.">
 
             🌼
 
         </div>
 
 
-        <!-- ==================================================
+        <!-- =========================
              TULIPANES
-        ================================================== -->
+        ========================== -->
 
         <div class="flower"
-             style="left:25%;top:75%"
-             data-message="🌷 A veces florecer requiere tiempo. No tengas prisa por convertirte en quien quieres ser.">
+             style="left:23%;top:75%"
+             data-message="🌷 No tengas prisa por florecer. Cada persona tiene su propio momento.">
 
             🌷
 
@@ -1020,21 +1018,21 @@ html,body{
 
 
         <div class="flower"
-             style="left:70%;top:73%"
-             data-message="🌷 Sigue cuidando tu corazón. Las cosas bonitas también necesitan paciencia.">
+             style="left:70%;top:75%"
+             data-message="🌷 Sigue cuidando tu corazón. Las cosas bonitas necesitan tiempo.">
 
             🌷
 
         </div>
 
 
-        <!-- ==================================================
-             OTRAS FLORES
-        ================================================== -->
+        <!-- =========================
+             FLORES
+        ========================== -->
 
         <div class="flower"
-             style="left:45%;top:12%"
-             data-message="🌺 Tu vida tiene muchos capítulos. No juzgues toda la historia por una página difícil.">
+             style="left:44%;top:11%"
+             data-message="🌺 Tu historia todavía tiene muchos capítulos bonitos por escribir.">
 
             🌺
 
@@ -1042,21 +1040,21 @@ html,body{
 
 
         <div class="flower"
-             style="left:45%;top:84%"
-             data-message="🌼 Mañana puede traer algo que hoy todavía no imaginas.">
+             style="left:44%;top:85%"
+             data-message="🌼 Mañana puede traer algo hermoso que hoy todavía no puedes imaginar.">
 
             🌼
 
         </div>
 
 
-        <!-- ==================================================
-             ROSA AMARILLA 1
-        ================================================== -->
+        <!-- =========================
+             ROSA 1
+        ========================== -->
 
         <div class="yellowRose"
-             style="left:15%;top:68%"
-             data-message="🌹 Una rosa amarilla para recordarte que también mereces cariño, tranquilidad y días bonitos.">
+             style="left:13%;top:65%"
+             data-message="🌹 Una rosa amarilla para recordarte que mereces cariño, tranquilidad y momentos bonitos.">
 
             <div class="rosePetal r1"></div>
             <div class="rosePetal r2"></div>
@@ -1068,19 +1066,20 @@ html,body{
             <div class="roseCenter"></div>
 
             <div class="roseStem"></div>
+
             <div class="leaf leaf1"></div>
             <div class="leaf leaf2"></div>
 
         </div>
 
 
-        <!-- ==================================================
-             ROSA AMARILLA 2
-        ================================================== -->
+        <!-- =========================
+             ROSA 2
+        ========================== -->
 
         <div class="yellowRose"
-             style="left:80%;top:65%"
-             data-message="💛 Que esta pequeña rosa te recuerde que incluso en medio de la oscuridad puede existir belleza.">
+             style="left:79%;top:65%"
+             data-message="💛 Incluso cuando el cielo parece oscuro, todavía existen pequeñas luces.">
 
             <div class="rosePetal r1"></div>
             <div class="rosePetal r2"></div>
@@ -1092,19 +1091,20 @@ html,body{
             <div class="roseCenter"></div>
 
             <div class="roseStem"></div>
+
             <div class="leaf leaf1"></div>
             <div class="leaf leaf2"></div>
 
         </div>
 
 
-        <!-- ==================================================
-             ROSA AMARILLA 3
-        ================================================== -->
+        <!-- =========================
+             ROSA 3
+        ========================== -->
 
         <div class="yellowRose"
-             style="left:34%;top:42%"
-             data-message="🌹 No necesitas ser perfecta. Ya tienes valor simplemente por ser tú.">
+             style="left:30%;top:40%"
+             data-message="🌹 No necesitas ser perfecta para ser especial. Eres valiosa tal como eres.">
 
             <div class="rosePetal r1"></div>
             <div class="rosePetal r2"></div>
@@ -1116,17 +1116,20 @@ html,body{
             <div class="roseCenter"></div>
 
             <div class="roseStem"></div>
+
             <div class="leaf leaf1"></div>
             <div class="leaf leaf2"></div>
 
         </div>
 
 
-        <!-- ROSA 4 -->
+        <!-- =========================
+             ROSA 4
+        ========================== -->
 
         <div class="yellowRose"
-             style="left:63%;top:42%"
-             data-message="✨ Algunas personas llegan a nuestra vida para dejar un poquito de luz.">
+             style="left:64%;top:40%"
+             data-message="✨ Que esta pequeña rosa te recuerde que todavía existen cosas bonitas esperando por ti.">
 
             <div class="rosePetal r1"></div>
             <div class="rosePetal r2"></div>
@@ -1138,10 +1141,12 @@ html,body{
             <div class="roseCenter"></div>
 
             <div class="roseStem"></div>
+
             <div class="leaf leaf1"></div>
             <div class="leaf leaf2"></div>
 
         </div>
+
 
     </div>
 
@@ -1149,26 +1154,29 @@ html,body{
     <!-- AYUDA -->
 
     <div class="zoomHelp">
-        🤏 Puedes acercar la galaxia con dos dedos
+
+        🤏 Acerca o aleja con dos dedos
+
     </div>
 
 
-    <!-- CARTA -->
+    <!-- BOTÓN CARTA -->
 
     <button
         class="letterButton"
-        id="letterButton">
+        onclick="abrirCarta()">
 
         💌 Tengo algo que decirte
 
     </button>
 
+
 </main>
 
 
-<!-- ==================================================
+<!-- =================================================
      CARTA
-================================================== -->
+================================================= -->
 
 <div
     class="overlay"
@@ -1181,51 +1189,56 @@ html,body{
         </h2>
 
         <p>
-            Quizás hoy no sea el mejor de tus días,
-            pero eso no significa que todos tus días
-            serán así.
+            Quizás hoy estés pasando por
+            un momento difícil.
         </p>
 
         <br>
 
         <p>
-            Hay momentos en los que simplemente
-            necesitamos respirar, descansar y
-            recordar que no tenemos que resolver
-            todo de una sola vez.
+            Pero recuerda que un día difícil
+            no significa que toda tu vida
+            será difícil.
         </p>
 
         <br>
 
         <p>
-            🌼 Sigue adelante a tu propio ritmo.
+            🌼 Está bien descansar.
+            Está bien llorar.
+            Está bien tomarte tu tiempo.
         </p>
 
         <br>
 
         <p>
-            🌹 Que nunca te falten personas que
-            te quieran ver sonreír.
+            🌹 Las flores también necesitan
+            tiempo antes de volver a florecer.
         </p>
 
         <br>
 
         <p>
-            🌻 Y cuando llegue un día gris,
-            recuerda que hasta las flores necesitan
-            pasar por la noche antes de volver
-            a abrirse.
+            🌻 Sigue adelante poco a poco.
         </p>
 
         <br>
 
         <p>
-            💛 Cuídate mucho.
+            💛 Espero que algún día mires
+            hacia atrás y te des cuenta
+            de todo lo que lograste superar.
+        </p>
+
+        <br>
+
+        <p>
+            Cuídate mucho. 🌻
         </p>
 
         <button
             class="close"
-            id="close">
+            onclick="cerrarCarta()">
 
             Cerrar
 
@@ -1238,69 +1251,317 @@ html,body{
 
 <script>
 
-/* ==================================================
+/* =================================================
    ENTRAR A LA GALAXIA
-================================================== */
+================================================= */
 
-const intro =
-document.getElementById("intro");
+function entrarGalaxia(){
 
-const galaxy =
-document.getElementById("galaxy");
+    var intro =
+    document.getElementById("intro");
 
-document
-.getElementById("enter")
-.addEventListener(
+    var galaxy =
+    document.getElementById("galaxy");
+
+    intro.style.opacity = "0";
+
+    setTimeout(function(){
+
+        intro.style.display = "none";
+
+        galaxy.style.display = "block";
+
+    },700);
+
+}
+
+
+/* =================================================
+   CREAR ESTRELLAS
+================================================= */
+
+var world =
+document.getElementById("world");
+
+for(
+    var i = 0;
+    i < 350;
+    i++
+){
+
+    var estrella =
+    document.createElement("div");
+
+    estrella.className =
+    "star";
+
+    estrella.style.left =
+    (Math.random()*100) + "%";
+
+    estrella.style.top =
+    (Math.random()*100) + "%";
+
+    estrella.style.animationDelay =
+    (Math.random()*3) + "s";
+
+    world.appendChild(
+        estrella
+    );
+
+}
+
+
+/* =================================================
+   FLORES
+================================================= */
+
+var flores =
+document.querySelectorAll(
+    ".flower, .yellowRose"
+);
+
+flores.forEach(function(flor){
+
+    flor.addEventListener(
+        "click",
+        function(event){
+
+            event.stopPropagation();
+
+            flores.forEach(function(otra){
+
+                if(otra !== flor){
+
+                    otra.classList.remove(
+                        "open"
+                    );
+
+                    var viejo =
+                    otra.querySelector(
+                        ".message"
+                    );
+
+                    if(viejo){
+                        viejo.remove();
+                    }
+
+                }
+
+            });
+
+            var anterior =
+            flor.querySelector(
+                ".message"
+            );
+
+            if(anterior){
+
+                anterior.remove();
+
+                flor.classList.remove(
+                    "open"
+                );
+
+                return;
+
+            }
+
+            var mensaje =
+            document.createElement(
+                "div"
+            );
+
+            mensaje.className =
+            "message";
+
+            mensaje.textContent =
+            flor.getAttribute(
+                "data-message"
+            );
+
+            flor.appendChild(
+                mensaje
+            );
+
+            flor.classList.add(
+                "open"
+            );
+
+        }
+    );
+
+});
+
+
+/* =================================================
+   CERRAR MENSAJES
+================================================= */
+
+document.addEventListener(
     "click",
     function(){
 
-        intro.style.opacity="0";
+        flores.forEach(
+            function(flor){
 
-        setTimeout(
-            function(){
+                flor.classList.remove(
+                    "open"
+                );
 
-                intro.style.display="none";
-
-                galaxy.style.display="block";
-
-            },
-            1000
+            }
         );
 
     }
 );
 
 
-/* ==================================================
-   CREAR MUCHAS ESTRELLAS
-================================================== */
+/* =================================================
+   ABRIR CARTA
+================================================= */
 
-const world =
-document.getElementById("world");
+function abrirCarta(){
 
-for(
-    let i=0;
-    i<350;
-    i++
-){
-
-    const star =
-    document.createElement("div");
-
-    star.className="star";
-
-    star.style.left =
-    Math.random()*100+"%";
-
-    star.style.top =
-    Math.random()*100+"%";
-
-    star.style.animationDelay =
-    Math.random()*3+"s";
-
-    world.appendChild(star);
+    document.getElementById(
+        "overlay"
+    ).style.display = "flex";
 
 }
 
 
-/* ===========================================
+/* =================================================
+   CERRAR CARTA
+================================================= */
+
+function cerrarCarta(){
+
+    document.getElementById(
+        "overlay"
+    ).style.display = "none";
+
+}
+
+
+/* =================================================
+   CERRAR CARTA TOCANDO AFUERA
+================================================= */
+
+document
+.getElementById("overlay")
+.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            document.getElementById("overlay")
+        ){
+
+            cerrarCarta();
+
+        }
+
+    }
+);
+
+
+/* =================================================
+   ZOOM CON DOS DEDOS
+================================================= */
+
+var escala = 1;
+
+var distanciaInicial = 0;
+
+function calcularDistancia(touches){
+
+    var dx =
+    touches[0].clientX -
+    touches[1].clientX;
+
+    var dy =
+    touches[0].clientY -
+    touches[1].clientY;
+
+    return Math.sqrt(
+        dx * dx + dy * dy
+    );
+
+}
+
+document
+.getElementById("galaxy")
+.addEventListener(
+    "touchstart",
+    function(event){
+
+        if(
+            event.touches.length === 2
+        ){
+
+            distanciaInicial =
+            calcularDistancia(
+                event.touches
+            );
+
+        }
+
+    },
+    {
+        passive:false
+    }
+);
+
+
+document
+.getElementById("galaxy")
+.addEventListener(
+    "touchmove",
+    function(event){
+
+        if(
+            event.touches.length === 2
+        ){
+
+            event.preventDefault();
+
+            var distanciaActual =
+            calcularDistancia(
+                event.touches
+            );
+
+            var diferencia =
+            distanciaActual -
+            distanciaInicial;
+
+            escala +=
+            diferencia * 0.003;
+
+            escala =
+            Math.max(
+                1,
+                Math.min(
+                    2.3,
+                    escala
+                )
+            );
+
+            world.style.transform =
+            "translate(-50%,-50%) scale("
+            + escala +
+            ")";
+
+            distanciaInicial =
+            distanciaActual;
+
+        }
+
+    },
+    {
+        passive:false
+    }
+);
+
+</script>
+
+</body>
+</html>
