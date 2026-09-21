@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🌻 Un universo para ti</title>
+
+<style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#02010b;
+    color:white;
+}
+
+
+/* =====================================================
+   PANTALLA DE BIENVENIDA
+===================================================== */
+
+.intro{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #33205f 0%,
+            #13082e 45%,
+            #020109 100%
+        );
+
+    z-index:1000;
+
+    transition:1.2s;
+}
+
+.intro.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.intro-box{
+    width:90%;
+    max-width:470px;
+    animation:entrada 1.5s ease;
+}
+
+@keyframes entrada{
+
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.big-flower{
+
+    font-size:80px;
+
+    filter:
+        drop-shadow(0 0 15px #ffd000)
+        drop-shadow(0 0 40px #ff9d00);
+
+    animation:pulse 2s infinite alternate;
+}
+
+@keyframes pulse{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.12);
+    }
+}
+
+.intro h1{
+
+    margin-top:15px;
+
+    font-size:
+        clamp(28px,7vw,45px);
+
+    color:#ffe66d;
+
+    text-shadow:
+        0 0 12px #ffd000,
+        0 0 30px #ff9d00;
+}
+
+.intro p{
+
+    margin-top:18px;
+
+    line-height:1.7;
+
+    color:#fff4c7;
+
+    font-size:16px;
+}
+
+.enter{
+
+    margin-top:28px;
+
+    padding:14px 27px;
+
+    border:0;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            45deg,
+            #ffd000,
+            #fff08a
+        );
+
+    color:#352300;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    box-shadow:
+        0 0 20px #ffd000;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   UNIVERSO
+===================================================== */
+
+.universe{
+
+    position:fixed;
+    inset:0;
+
+    opacity:0;
+
+    transition:2s;
+}
+
+.universe.show{
+    opacity:1;
+}
+
+
+/* =====================================================
+   ESTRELLAS
+===================================================== */
+
+.stars{
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        );
+
+    background-size:
+        80px 80px,
+        140px 140px;
+
+    background-position:
+        10px 20px,
+        50px 70px;
+
+    opacity:.5;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.title{
+
+    position:absolute;
+
+    top:15px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:95%;
+
+    text-align:center;
+
+    z-index:50;
+}
+
+.title h1{
+
+    color:#ffe66d;
+
+    font-size:
+        clamp(23px,6vw,42px);
+
+    text-shadow:
+        0 0 10px #ffd000,
+        0 0 25px #ffae00;
+}
+
+.title p{
+
+    margin-top:6px;
+
+    color:#fff3c4;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   SOL
+===================================================== */
+
+.sun{
+
+    position:absolute;
+
+    left:50%;
+    top:55%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width:105px;
+    height:105px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:48px;
+
+    background:
+        radial-gradient(
+            circle,
+            #fffbd0,
+            #ffe72b 35%,
+            #ffae00 70%,
+            #ff6a00
+        );
+
+    box-shadow:
+
+        0 0 20px #fff000,
+        0 0 55px #ffc400,
+        0 0 120px #ff8500;
+
+    z-index:20;
+
+    animation:sol 3s infinite alternate;
+}
+
+@keyframes sol{
+
+    from{
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            scale(1.08);
+    }
+}
+
+
+/* =====================================================
+   ÓRBITAS
+===================================================== */
+
+.orbit{
+
+    position:absolute;
+
+    left:50%;
+    top:55%;
+
+    border:
+        1px dashed
+        rgba(255,255,255,.2);
+
+    border-radius:50%;
+
+    transform:
+        translate(-50%,-50%);
+}
+
+.orbit1{
+
+    width:180px;
+    height:180px;
+
+    animation:girar1 12s linear infinite;
+}
+
+.orbit2{
+
+    width:290px;
+    height:290px;
+
+    animation:girar2 18s linear infinite reverse;
+}
+
+.orbit3{
+
+    width:410px;
+    height:410px;
+
+    animation:girar3 25s linear infinite;
+}
+
+.orbit4{
+
+    width:530px;
+    height:530px;
+
+    animation:girar4 33s linear infinite reverse;
+}
+
+@keyframes girar1{
+
+    from{
+        transform:
+            translate(-50%,-50%)
+            rotate(0);
+    }
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+    }
+}
+
+@keyframes girar2{
+
+    from{
+        transform:
+            translate(-50%,-50%)
+            rotate(0);
+    }
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+    }
+}
+
+@keyframes girar3{
+
+    from{
+        transform:
+            translate(-50%,-50%)
+            rotate(0);
+    }
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+    }
+}
+
+@keyframes girar4{
+
+    from{
+        transform:
+            translate(-50%,-50%)
+            rotate(0);
+    }
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   PLANETAS
+===================================================== */
+
+.planet{
+
+    position:absolute;
+
+    left:50%;
+    top:-48px;
+
+    width:100px;
+    height:100px;
+
+    transform:
+        translateX(-50%);
+
+    cursor:pointer;
+
+    z-index:40;
+}
+
+
+/* =====================================================
+   FLORES
+===================================================== */
+
+.flower{
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 8%,
+            #fff36b 0 13%,
+            transparent 14%
+        ),
+
+        radial-gradient(
+            circle at 92% 50%,
+            #ffe52b 0 13%,
+            transparent 14%
+        ),
+
+        radial-gradient(
+            circle at 50% 92%,
+            #ffd51a 0 13%,
+            transparent 14%
+        ),
+
+        radial-gradient(
+            circle at 8% 50%,
+            #ffe52b 0 13%,
+            transparent 14%
+        ),
+
+        radial-gradient(
+            circle at 25% 25%,
+            #ffec4d 0 13%,
+            transparent 14%
+        ),
+
+        radial-gradient(
+            circle at 75% 25%,
+            #ffe52b 0 13%,
+            transparent 14%
+        ),
+
+        radial-gradient(
+            circle at 75% 75%,
+            #ffd51a 0 13%,
+            transparent 14%
+        ),
+
+        radial-gradient(
+            circle at 25% 75%,
+            #ffea3a 0 13%,
+            transparent 14%
+        );
+
+    box-shadow:
+
+        0 0 15px #ffd000,
+        0 0 35px rgba(255,210,0,.7);
+
+    transition:.3s;
+}
+
+.planet:hover .flower{
+
+    transform:scale(1.15);
+}
+
+
+/* =====================================================
+   AVATARES ANIME SIN IMÁGENES
+===================================================== */
+
+.avatar{
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:29px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #ddd
+        );
+
+    border:
+        3px solid #fff3a0;
+
+    box-shadow:
+        0 0 12px #fff000;
+
+    z-index:5;
+
+    position:relative;
+}
+
+
+/* Cabello estilizado */
+
+.avatar::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+    height:55%;
+
+    top:-2px;
+
+    border-radius:
+        50% 50% 30% 30%;
+
+    background:
+        var(--hair,#24163d);
+
+    z-index:-1;
+}
+
+
+/* Colores diferentes */
+
+.nezuko{
+    --hair:#211326;
+}
+
+.tanjiro{
+    --hair:#17131c;
+}
+
+.deku{
+    --hair:#101b12;
+}
+
+.sailor{
+    --hair:#182b63;
+}
+
+.naruto{
+    --hair:#d87818;
+}
+
+.goku{
+    --hair:#111;
+}
+
+.mikasa{
+    --hair:#20191b;
+}
+
+.luffy{
+    --hair:#321b10;
+}
+
+
+/* =====================================================
+   NOMBRES
+===================================================== */
+
+.name{
+
+    position:absolute;
+
+    top:98px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    white-space:nowrap;
+
+    color:#ffe66d;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    text-shadow:
+        0 2px 5px #000;
+}
+
+
+/* =====================================================
+   MENSAJES
+===================================================== */
+
+.message{
+
+    position:absolute;
+
+    width:200px;
+
+    bottom:105px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%)
+        scale(.7);
+
+    padding:14px;
+
+    border:
+        2px solid #ffd83d;
+
+    border-radius:18px;
+
+    background:
+        rgba(17,7,40,.97);
+
+    text-align:center;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    box-shadow:
+        0 0 25px
+        rgba(255,210,0,.6);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:200;
+}
+
+.planet.active .message{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+        translateX(-50%)
+        scale(1);
+}
+
+
+/* =====================================================
+   CARTA
+===================================================== */
+
+.letter-button{
+
+    position:fixed;
+
+    bottom:18px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    padding:13px 23px;
+
+    border:0;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            45deg,
+            #ffd000,
+            #fff080
+        );
+
+    color:#352300;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    z-index:80;
+
+    box-shadow:
+        0 0 20px
+        rgba(255,210,0,.7);
+}
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.82);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.4s;
+
+    z-index:500;
+}
+
+.overlay.show{
+
+    opacity:1;
+    visibility:visible;
+}
+
+.letter{
+
+    width:88%;
+    max-width:430px;
+
+    padding:28px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #2a175a,
+            #0c0723
+        );
+
+    border:
+        2px solid #ffd83d;
+
+    border-radius:25px;
+
+    box-shadow:
+        0 0 40px #ffd000;
+}
+
+.letter h2{
+
+    color:#ffe66d;
+
+    margin-bottom:15px;
+}
+
+.letter p{
+
+    line-height:1.7;
+
+    color:#fff5cc;
+
+    margin-bottom:10px;
+}
+
+.close{
+
+    margin-top:10px;
+
+    padding:10px 22px;
+
+    border:0;
+
+    border-radius:20px;
+
+    background:#ffd83d;
+
+    color:#332000;
+
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   CORAZONES Y FLORES FLOTANTES
+===================================================== */
+
+.floating{
+
+    position:fixed;
+
+    bottom:-40px;
+
+    pointer-events:none;
+
+    z-index:10;
+
+    animation:
+        subir linear forwards;
+}
+
+@keyframes subir{
+
+    from{
+
+        transform:
+            translateY(0)
+            rotate(0)
+            scale(.7);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    to{
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.2);
+
+        opacity:0;
+    }
+}
+
+
+/* =====================================================
+   MÓVIL
+===================================================== */
+
+@media(max-width:600px){
+
+    .sun{
+
+        width:75px;
+        height:75px;
+
+        font-size:34px;
+    }
+
+    .orbit1{
+
+        width:145px;
+        height:145px;
+    }
+
+    .orbit2{
+
+        width:235px;
+        height:235px;
+    }
+
+    .orbit3{
+
+        width:325px;
+        height:325px;
+    }
+
+    .orbit4{
+
+        width:415px;
+        height:415px;
+    }
+
+    .flower{
+
+        width:70px;
+        height:70px;
+    }
+
+    .avatar{
+
+        width:37px;
+        height:37px;
+
+        font-size:23px;
+    }
+
+    .planet{
+
+        top:-38px;
+    }
+
+    .name{
+
+        top:76px;
+
+        font-size:10px;
+    }
+
+    .message{
+
+        width:175px;
+
+        font-size:12px;
+    }
+
+    .title h1{
+
+        font-size:24px;
+    }
+
+    .title p{
+
+        font-size:11px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     INTRODUCCIÓN
+===================================================== -->
+
+<div class="intro" id="intro">
+
+    <div class="intro-box">
+
+        <div class="big-flower">
+            🌻
+        </div>
+
+        <h1>
+            Un pequeño universo para ti
+        </h1>
+
+        <p>
+
+            Este lugar fue creado para recordarte
+            que incluso después de las noches más oscuras,
+            siempre puede volver a salir el sol.
+
+            <br><br>
+
+            ✨ Tienes mucho por vivir. ✨
+
+        </p>
+
+        <button
+            class="enter"
+            onclick="enterUniverse()">
+
+            🌻 Entrar a mi universo 🌻
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     UNIVERSO
+===================================================== -->
+
+<div class="universe" id="universe">
+
+    <div class="stars"></div>
+
+
+    <div class="title">
+
+        <h1>
+            🌻 Un universo para ti 🌻
+        </h1>
+
+        <p>
+            Toca una flor para descubrir su mensaje ✨
+        </p>
+
+    </div>
+
+
+    <div class="space">
+
+
+        <!-- SOL -->
+
+        <div class="sun">
+            🌻
+        </div>
+
+
+        <!-- =================================================
+             NEZUKO
+        ================================================== -->
+
+        <div class="orbit orbit1">
+
+            <div class="planet">
+
+                <div class="flower">
+
+                    <div class="avatar nezuko">
+                        🌸
+                    </div>
+
+                </div>
+
+                <div class="name">
+                    🌸 Nezuko
+                </div>
+
+                <div class="message">
+
+                    No tienes que ser fuerte
+                    todos los días.
+
+                    <br><br>
+
+                    Está bien llorar,
+                    descansar y pedir ayuda.
+
+                    <br><br>
+
+                    💗 Tu valor sigue ahí,
+                    incluso cuando tú no lo sientas.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TANJIRO
+        ================================================== -->
+
+        <div class="orbit orbit2">
+
+            <div class="planet">
+
+                <div class="flower">
+
+                    <div class="avatar tanjiro">
+                        ⚔️
+                    </div>
+
+                </div>
+
+                <div class="name">
+                    ⚔️ Tanjiro
+                </div>
+
+                <div class="message">
+
+                    Puede que ahora estés
+                    atravesando una etapa difícil.
+
+                    <br><br>
+
+                    Pero este momento
+                    no define toda tu historia.
+
+                    <br><br>
+
+                    🌙 Todavía quedan
+                    días hermosos por vivir.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             DEKU
+        ================================================== -->
+
+        <div class="orbit orbit3">
+
+            <div class="planet">
+
+                <div class="flower">
+
+                    <div class="avatar deku">
+                        💚
+                    </div>
+
+                </div>
+
+                <div class="name">
+                    💚 Deku
+                </div>
+
+                <div class="message">
+
+                    No necesitas ser perfecta.
+
+                    <br><br>
+
+                    No tienes que compararte
+                    con nadie.
+
+                    <br><br>
+
+                    💚 Eres valiosa
+                    simplemente por ser tú.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SAILOR MOON
+        ================================================== -->
+
+        <div class="orbit orbit4">
+
+            <div class="planet">
+
+                <div class="flower">
+
+                    <div class="avatar sailor">
+                        🌙
+                    </div>
+
+                </div>
+
+                <div class="name">
+                    🌙 Sailor Moon
+                </div>
+
+                <div class="message">
+
+                    Incluso las estrellas
+                    desaparecen durante el día.
+
+                    <br><br>
+
+                    Eso no significa que hayan
+                    dejado de existir.
+
+                    <br><br>
+
+                    ✨ Tu luz también sigue ahí.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             NARUTO
+        ================================================== -->
+
+        <div
+            class="planet"
+            style="top:22%;left:13%;">
+
+            <div class="flower">
+
+                <div class="avatar naruto">
+                    🍥
+                </div>
+
+            </div>
+
+            <div class="name">
+                🍥 Naruto
+            </div>
+
+            <div class="message">
+
+                Un mal día
+                no significa una mala vida.
+
+                <br><br>
+
+                📖 Tu historia todavía
+                tiene muchos capítulos
+                por escribir.
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             GOKU
+        ================================================== -->
+
+        <div
+            class="planet"
+            style="top:24%;left:83%;">
+
+            <div class="flower">
+
+                <div class="avatar goku">
+                    🧡
+                </div>
+
+            </div>
+
+            <div class="name">
+                🧡 Goku
+            </div>
+
+            <div class="message">
+
+                No importa cuántas veces caigas.
+
+                <br><br>
+
+                Lo importante es que,
+                cuando puedas,
+                vuelvas a levantarte.
+
+                <br><br>
+
+                ✨ Un pequeño paso
+                también es avanzar.
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MIKASA
+        ================================================== -->
+
+        <div
+            class="planet"
+            style="top:73%;left:12%;">
+
+            <div class="flower">
+
+                <div class="avatar mikasa">
+                    ❤️
+                </div>
+
+            </div>
+
+            <div class="name">
+                ❤️ Mikasa
+            </div>
+
+            <div class="message">
+
+                Has sobrevivido
+                a momentos que alguna vez
+                pensaste que no superarías.
+
+                <br><br>
+
+                ❤️ Recuerda la fuerza
+                que ya existe dentro de ti.
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             LUFFY
+        ================================================== -->
+
+     
