@@ -109,4 +109,1198 @@ html,body{
         55px
     );
 
-   
+    text-shadow:
+    0 0 10px #ffd000,
+    0 0 30px #ff9900;
+}
+
+.introBox p{
+
+    margin-top:22px;
+
+    color:#fff6c0;
+
+    font-size:18px;
+
+    line-height:1.7;
+}
+
+.enter{
+
+    margin-top:30px;
+
+    padding:17px 30px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#ffd52b;
+
+    color:#493000;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    box-shadow:
+    0 0 15px #ffd000,
+    0 0 40px #ff9d00;
+
+    cursor:pointer;
+}
+
+/* =========================
+   GALAXIA
+========================= */
+
+#galaxy{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    overflow:hidden;
+
+    background:
+
+    radial-gradient(
+        ellipse at center,
+        #442060 0%,
+        #1b092c 35%,
+        #07000f 70%,
+        #010003 100%
+    );
+
+    touch-action:none;
+}
+
+/* =========================
+   NEBULOSA
+========================= */
+
+.nebula{
+
+    position:absolute;
+
+    width:800px;
+    height:400px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+    translate(-50%,-50%)
+    rotate(-20deg);
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        ellipse,
+        rgba(255,215,80,.25),
+        rgba(255,180,0,.10),
+        rgba(180,50,255,.08),
+        transparent 70%
+    );
+
+    filter:blur(30px);
+
+    pointer-events:none;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+.title{
+
+    position:fixed;
+
+    top:15px;
+
+    left:0;
+    right:0;
+
+    text-align:center;
+
+    color:#ffe66b;
+
+    font-size:20px;
+
+    z-index:500;
+
+    text-shadow:
+    0 0 10px gold,
+    0 0 25px #ff9900;
+
+    pointer-events:none;
+}
+
+/* =========================
+   MUNDO
+========================= */
+
+#world{
+
+    position:absolute;
+
+    width:2200px;
+    height:2200px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+
+    transform-origin:center;
+
+    transition:transform .15s ease-out;
+}
+
+/* =========================
+   ESTRELLAS
+========================= */
+
+.star{
+
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+    0 0 7px white;
+
+    animation:
+    twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:.2;
+        transform:scale(.5);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.6);
+    }
+}
+
+/* =========================
+   ESTRELLAS GRANDES
+========================= */
+
+.bigStar{
+
+    position:absolute;
+
+    color:#fff7a0;
+
+    font-size:22px;
+
+    animation:
+    spinStar 4s linear infinite;
+}
+
+@keyframes spinStar{
+
+    from{
+        transform:rotate(0deg) scale(.8);
+    }
+
+    50%{
+        transform:rotate(180deg) scale(1.3);
+    }
+
+    to{
+        transform:rotate(360deg) scale(.8);
+    }
+}
+
+/* =========================
+   CENTRO
+========================= */
+
+.core{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+    translate(-50%,-50%);
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        #fff7a0 0%,
+        #ffd51b 22%,
+        #ffb000 38%,
+        rgba(255,170,0,.35) 58%,
+        transparent 72%
+    );
+
+    box-shadow:
+    0 0 40px #ffd000,
+    0 0 100px #ffb000,
+    0 0 180px rgba(255,180,0,.5);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:110px;
+
+    z-index:20;
+
+    animation:
+    corePulse 3s infinite alternate;
+}
+
+@keyframes corePulse{
+
+    from{
+        box-shadow:
+        0 0 35px #ffd000,
+        0 0 90px #ffb000;
+    }
+
+    to{
+        box-shadow:
+        0 0 60px #fff000,
+        0 0 150px #ffb000;
+    }
+}
+
+/* =========================
+   FLORES GENERALES
+========================= */
+
+.flower{
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:60px;
+
+    cursor:pointer;
+
+    z-index:100;
+
+    transition:
+    transform .3s,
+    filter .3s;
+
+    animation:
+    flowerFloat 4s ease-in-out infinite;
+}
+
+@keyframes flowerFloat{
+
+    0%,100%{
+        margin-top:0;
+    }
+
+    50%{
+        margin-top:-12px;
+    }
+}
+
+.flower:hover{
+
+    transform:scale(1.25);
+
+    filter:
+    drop-shadow(0 0 20px #fff000);
+}
+
+/* =========================
+   ROSA AMARILLA CSS
+========================= */
+
+.yellowRose{
+
+    position:absolute;
+
+    width:75px;
+    height:75px;
+
+    cursor:pointer;
+
+    z-index:100;
+
+    filter:
+    drop-shadow(0 0 10px #ffd000);
+
+    animation:
+    roseFloat 4s ease-in-out infinite;
+}
+
+@keyframes roseFloat{
+
+    0%,100%{
+        transform:rotate(-3deg) translateY(0);
+    }
+
+    50%{
+        transform:rotate(3deg) translateY(-12px);
+    }
+}
+
+.roseCenter{
+
+    position:absolute;
+
+    width:32px;
+    height:32px;
+
+    left:22px;
+    top:22px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        #ffea00,
+        #e5a900
+    );
+
+    z-index:5;
+}
+
+.rosePetal{
+
+    position:absolute;
+
+    width:34px;
+    height:34px;
+
+    border-radius:
+    60% 40% 60% 40%;
+
+    background:
+    radial-gradient(
+        circle at 35% 30%,
+        #fff06a,
+        #ffd000 55%,
+        #e6a500
+    );
+
+    box-shadow:
+    inset 0 0 5px #fff59d;
+
+}
+
+.r1{
+    left:20px;
+    top:2px;
+}
+
+.r2{
+    left:40px;
+    top:14px;
+    transform:rotate(60deg);
+}
+
+.r3{
+    left:37px;
+    top:38px;
+    transform:rotate(120deg);
+}
+
+.r4{
+    left:15px;
+    top:42px;
+    transform:rotate(180deg);
+}
+
+.r5{
+    left:2px;
+    top:22px;
+    transform:rotate(240deg);
+}
+
+.r6{
+    left:18px;
+    top:20px;
+    transform:rotate(300deg);
+}
+
+/* =========================
+   TALLO DE ROSA
+========================= */
+
+.roseStem{
+
+    position:absolute;
+
+    width:6px;
+    height:55px;
+
+    left:35px;
+    top:65px;
+
+    background:
+    linear-gradient(
+        to right,
+        #367d25,
+        #72b52d,
+        #2c701f
+    );
+
+    border-radius:10px;
+
+    transform:rotate(5deg);
+
+    z-index:-1;
+}
+
+.leaf{
+
+    position:absolute;
+
+    width:25px;
+    height:13px;
+
+    background:#62a82a;
+
+    border-radius:
+    100% 0 100% 0;
+
+}
+
+.leaf1{
+
+    left:7px;
+    top:85px;
+
+    transform:rotate(-30deg);
+}
+
+.leaf2{
+
+    left:39px;
+    top:88px;
+
+    transform:rotate(30deg);
+}
+
+/* =========================
+   MENSAJES
+========================= */
+
+.message{
+
+    position:absolute;
+
+    width:260px;
+
+    padding:18px;
+
+    left:50%;
+    top:75px;
+
+    transform:
+    translateX(-50%);
+
+    background:
+    rgba(20,5,35,.97);
+
+    border:
+    2px solid #ffd52b;
+
+    border-radius:20px;
+
+    color:#fff3a0;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    text-align:center;
+
+    display:none;
+
+    box-shadow:
+    0 0 30px rgba(255,210,0,.7);
+
+    z-index:2000;
+}
+
+.flower.open .message,
+.yellowRose.open .message{
+
+    display:block;
+}
+
+/* =========================
+   TEXTO CENTRAL
+========================= */
+
+.centerText{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+    translate(-50%,125px);
+
+    width:300px;
+
+    text-align:center;
+
+    color:#fff4a0;
+
+    font-size:17px;
+
+    line-height:1.5;
+
+    z-index:30;
+
+    text-shadow:
+    0 0 10px gold;
+}
+
+/* =========================
+   BOTÓN CARTA
+========================= */
+
+.letterButton{
+
+    position:fixed;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:
+    translateX(-50%);
+
+    padding:16px 25px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:#ffd52b;
+
+    color:#432900;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    box-shadow:
+    0 0 20px #ffd000;
+
+    z-index:900;
+
+    cursor:pointer;
+}
+
+/* =========================
+   CARTA
+========================= */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(0,0,0,.85);
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:5000;
+}
+
+.letter{
+
+    width:90%;
+    max-width:500px;
+
+    max-height:85vh;
+
+    overflow:auto;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        145deg,
+        #fffbd1,
+        #ffe36b
+    );
+
+    color:#4c3400;
+
+    box-shadow:
+    0 0 50px #ffd000;
+}
+
+.letter h2{
+
+    font-size:29px;
+
+    margin-bottom:20px;
+}
+
+.letter p{
+
+    font-size:17px;
+
+    line-height:1.7;
+}
+
+.close{
+
+    margin-top:25px;
+
+    padding:10px 25px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#493100;
+
+    color:white;
+}
+
+/* =========================
+   AYUDA ZOOM
+========================= */
+
+.zoomHelp{
+
+    position:fixed;
+
+    bottom:75px;
+
+    left:50%;
+
+    transform:
+    translateX(-50%);
+
+    color:white;
+
+    font-size:13px;
+
+    opacity:.7;
+
+    z-index:400;
+
+    pointer-events:none;
+
+    text-align:center;
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:600px){
+
+    .title{
+        font-size:17px;
+    }
+
+    .core{
+
+        width:220px;
+        height:220px;
+
+        font-size:80px;
+    }
+
+    .flower{
+
+        font-size:48px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ==================================================
+     INTRO
+================================================== -->
+
+<section id="intro">
+
+    <div class="introBox">
+
+        <div class="bigFlower">
+            🌻
+        </div>
+
+        <h1>
+            Una galaxia de flores
+        </h1>
+
+        <p>
+            🌻🌼🌷🌹🌺
+        </p>
+
+        <p>
+            Un pequeño universo lleno de
+            flores amarillas creado para
+            recordarte que siempre existen
+            motivos para seguir adelante.
+        </p>
+
+        <button
+            class="enter"
+            id="enter">
+
+            🌻 Entrar a la galaxia 🌻
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     GALAXIA
+================================================== -->
+
+<main id="galaxy">
+
+    <div class="title">
+        ✨ Una galaxia llena de flores amarillas ✨
+    </div>
+
+    <div id="world">
+
+        <div class="nebula"></div>
+
+
+        <!-- ESTRELLAS -->
+
+        <div class="bigStar"
+             style="left:12%;top:15%">
+            ✦
+        </div>
+
+        <div class="bigStar"
+             style="left:82%;top:12%">
+            ✧
+        </div>
+
+        <div class="bigStar"
+             style="left:15%;top:80%">
+            ✦
+        </div>
+
+        <div class="bigStar"
+             style="left:85%;top:78%">
+            ✧
+        </div>
+
+
+        <!-- CENTRO -->
+
+        <div class="core">
+            🌻
+        </div>
+
+        <div class="centerText">
+
+            💛 El universo puede ser enorme...
+
+            <br>
+
+            pero siempre hay un pequeño
+            lugar donde puede volver a salir
+            la luz.
+
+        </div>
+
+
+        <!-- ==================================================
+             GIRASOLES
+        ================================================== -->
+
+        <div class="flower"
+             style="left:20%;top:25%"
+             data-message="🌻 Nunca olvides que incluso después de los días más difíciles, puede volver a salir el sol.">
+
+            🌻
+
+        </div>
+
+
+        <div class="flower"
+             style="left:73%;top:22%"
+             data-message="💛 No tienes que tener todo resuelto hoy. Un paso pequeño también es avanzar.">
+
+            🌻
+
+        </div>
+
+
+        <!-- ==================================================
+             MARGARITAS
+        ================================================== -->
+
+        <div class="flower"
+             style="left:12%;top:48%"
+             data-message="🌼 Que nunca te falten razones para sonreír, aunque sea una sonrisa pequeñita.">
+
+            🌼
+
+        </div>
+
+
+        <div class="flower"
+             style="left:84%;top:48%"
+             data-message="🌼 Eres importante. Incluso cuando tú misma no puedas verlo.">
+
+            🌼
+
+        </div>
+
+
+        <!-- ==================================================
+             TULIPANES
+        ================================================== -->
+
+        <div class="flower"
+             style="left:25%;top:75%"
+             data-message="🌷 A veces florecer requiere tiempo. No tengas prisa por convertirte en quien quieres ser.">
+
+            🌷
+
+        </div>
+
+
+        <div class="flower"
+             style="left:70%;top:73%"
+             data-message="🌷 Sigue cuidando tu corazón. Las cosas bonitas también necesitan paciencia.">
+
+            🌷
+
+        </div>
+
+
+        <!-- ==================================================
+             OTRAS FLORES
+        ================================================== -->
+
+        <div class="flower"
+             style="left:45%;top:12%"
+             data-message="🌺 Tu vida tiene muchos capítulos. No juzgues toda la historia por una página difícil.">
+
+            🌺
+
+        </div>
+
+
+        <div class="flower"
+             style="left:45%;top:84%"
+             data-message="🌼 Mañana puede traer algo que hoy todavía no imaginas.">
+
+            🌼
+
+        </div>
+
+
+        <!-- ==================================================
+             ROSA AMARILLA 1
+        ================================================== -->
+
+        <div class="yellowRose"
+             style="left:15%;top:68%"
+             data-message="🌹 Una rosa amarilla para recordarte que también mereces cariño, tranquilidad y días bonitos.">
+
+            <div class="rosePetal r1"></div>
+            <div class="rosePetal r2"></div>
+            <div class="rosePetal r3"></div>
+            <div class="rosePetal r4"></div>
+            <div class="rosePetal r5"></div>
+            <div class="rosePetal r6"></div>
+
+            <div class="roseCenter"></div>
+
+            <div class="roseStem"></div>
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+
+        </div>
+
+
+        <!-- ==================================================
+             ROSA AMARILLA 2
+        ================================================== -->
+
+        <div class="yellowRose"
+             style="left:80%;top:65%"
+             data-message="💛 Que esta pequeña rosa te recuerde que incluso en medio de la oscuridad puede existir belleza.">
+
+            <div class="rosePetal r1"></div>
+            <div class="rosePetal r2"></div>
+            <div class="rosePetal r3"></div>
+            <div class="rosePetal r4"></div>
+            <div class="rosePetal r5"></div>
+            <div class="rosePetal r6"></div>
+
+            <div class="roseCenter"></div>
+
+            <div class="roseStem"></div>
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+
+        </div>
+
+
+        <!-- ==================================================
+             ROSA AMARILLA 3
+        ================================================== -->
+
+        <div class="yellowRose"
+             style="left:34%;top:42%"
+             data-message="🌹 No necesitas ser perfecta. Ya tienes valor simplemente por ser tú.">
+
+            <div class="rosePetal r1"></div>
+            <div class="rosePetal r2"></div>
+            <div class="rosePetal r3"></div>
+            <div class="rosePetal r4"></div>
+            <div class="rosePetal r5"></div>
+            <div class="rosePetal r6"></div>
+
+            <div class="roseCenter"></div>
+
+            <div class="roseStem"></div>
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+
+        </div>
+
+
+        <!-- ROSA 4 -->
+
+        <div class="yellowRose"
+             style="left:63%;top:42%"
+             data-message="✨ Algunas personas llegan a nuestra vida para dejar un poquito de luz.">
+
+            <div class="rosePetal r1"></div>
+            <div class="rosePetal r2"></div>
+            <div class="rosePetal r3"></div>
+            <div class="rosePetal r4"></div>
+            <div class="rosePetal r5"></div>
+            <div class="rosePetal r6"></div>
+
+            <div class="roseCenter"></div>
+
+            <div class="roseStem"></div>
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AYUDA -->
+
+    <div class="zoomHelp">
+        🤏 Puedes acercar la galaxia con dos dedos
+    </div>
+
+
+    <!-- CARTA -->
+
+    <button
+        class="letterButton"
+        id="letterButton">
+
+        💌 Tengo algo que decirte
+
+    </button>
+
+</main>
+
+
+<!-- ==================================================
+     CARTA
+================================================== -->
+
+<div
+    class="overlay"
+    id="overlay">
+
+    <div class="letter">
+
+        <h2>
+            🌻 Para ti 💛
+        </h2>
+
+        <p>
+            Quizás hoy no sea el mejor de tus días,
+            pero eso no significa que todos tus días
+            serán así.
+        </p>
+
+        <br>
+
+        <p>
+            Hay momentos en los que simplemente
+            necesitamos respirar, descansar y
+            recordar que no tenemos que resolver
+            todo de una sola vez.
+        </p>
+
+        <br>
+
+        <p>
+            🌼 Sigue adelante a tu propio ritmo.
+        </p>
+
+        <br>
+
+        <p>
+            🌹 Que nunca te falten personas que
+            te quieran ver sonreír.
+        </p>
+
+        <br>
+
+        <p>
+            🌻 Y cuando llegue un día gris,
+            recuerda que hasta las flores necesitan
+            pasar por la noche antes de volver
+            a abrirse.
+        </p>
+
+        <br>
+
+        <p>
+            💛 Cuídate mucho.
+        </p>
+
+        <button
+            class="close"
+            id="close">
+
+            Cerrar
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==================================================
+   ENTRAR A LA GALAXIA
+================================================== */
+
+const intro =
+document.getElementById("intro");
+
+const galaxy =
+document.getElementById("galaxy");
+
+document
+.getElementById("enter")
+.addEventListener(
+    "click",
+    function(){
+
+        intro.style.opacity="0";
+
+        setTimeout(
+            function(){
+
+                intro.style.display="none";
+
+                galaxy.style.display="block";
+
+            },
+            1000
+        );
+
+    }
+);
+
+
+/* ==================================================
+   CREAR MUCHAS ESTRELLAS
+================================================== */
+
+const world =
+document.getElementById("world");
+
+for(
+    let i=0;
+    i<350;
+    i++
+){
+
+    const star =
+    document.createElement("div");
+
+    star.className="star";
+
+    star.style.left =
+    Math.random()*100+"%";
+
+    star.style.top =
+    Math.random()*100+"%";
+
+    star.style.animationDelay =
+    Math.random()*3+"s";
+
+    world.appendChild(star);
+
+}
+
+
+/* ===========================================
